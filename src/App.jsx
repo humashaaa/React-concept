@@ -24,6 +24,13 @@ function App() {
     console.log(country);
   };
 
+  // remove from visited country
+  const handleRemove = (country)=>{
+
+    const removeVisited = visitedCountries.filter(remove=>remove.name.common !== country.name.common )
+    setVisitedCountries(removeVisited)
+  }
+
   return (
     <>
       <h1 className="mb-5">Counties : {countries.length} </h1>
@@ -37,6 +44,7 @@ function App() {
             key={country.id}
             handleVisit={handleVisit}
             country={country}
+            handleRemove={handleRemove}
           ></Country>
         ))}
       </div>
