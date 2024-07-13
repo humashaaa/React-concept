@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'; // ES6
 
 const Country = ({country, handleVisit, handleRemove}) => {
     const {name, flags} = country
@@ -13,4 +14,10 @@ const Country = ({country, handleVisit, handleRemove}) => {
     );
 };
 
+Country.propTypes={
+    country: PropTypes.array.isRequired,
+    handleVisit : PropTypes.func,
+    handleRemove : PropTypes.func,
+
+}
 export default Country;

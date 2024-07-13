@@ -16,4 +16,15 @@ const addToLS = id=>{
     const saveCartStringify = JSON.stringify(cart)
     localStorage.setItem('cart', saveCartStringify)
 }
-export{addToLS}
+
+// remove cart
+const removeFromLS = id=>{
+    const cart = getStorageCart()
+    const removeCart = cart.find(myCart => myCart.id ===id )
+    // cart.push(removeCart)
+    // save to local storage
+
+    // const remove = JSON.stringify(removeCart)
+    localStorage.removeItem( removeCart)
+}
+export{addToLS, getStorageCart, removeFromLS}
