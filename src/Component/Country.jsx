@@ -15,7 +15,7 @@ const Country = ({country, handleVisit, handleRemove}) => {
 };
 
 Country.propTypes={
-    country: PropTypes.array.isRequired,
+    country: PropTypes.object.isRequired,
     handleVisit : PropTypes.func,
     handleRemove : PropTypes.func,
 

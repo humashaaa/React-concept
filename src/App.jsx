@@ -6,20 +6,23 @@ import { addToLS, getStorageCart, removeFromLS } from "./Component/localstorage"
 function App() {
   const [countries, setCountries] = useState([]);
   const [visitedCountries, setVisitedCountries] = useState([]);
+
+   // get cart from local storage
+ const getCart = getStorageCart()
+ console.log(getCart);
+
+
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
       .then((data) => {
         setCountries(data);
       });
-  }, []);
+  }, [getCart]);
   console.log(countries);
 
 
-
-  // get cart from local storage
-  const getCart = getStorageCart()
-  console.log(getCart);
+ 
 
   const handleVisit = (country) => {
 
@@ -43,7 +46,7 @@ function App() {
   const handleRemove = (country)=>{
 
 
-    // remove cointry from state
+    // remove country from state
     // const removeVisited = visitedCountries.filter(remove=>remove.name.common !== country.name.common )
     // setVisitedCountries(removeVisited)
 

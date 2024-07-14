@@ -20,11 +20,9 @@ const addToLS = id=>{
 // remove cart
 const removeFromLS = id=>{
     const cart = getStorageCart()
-    const removeCart = cart.find(myCart => myCart.id ===id )
-    // cart.push(removeCart)
-    // save to local storage
+    const remaining = cart.filter(idx => idx !==id )
 
-    // const remove = JSON.stringify(removeCart)
-    localStorage.removeItem( removeCart)
+    const saveCartStringify = JSON.stringify(remaining)
+    localStorage.setItem('cart', saveCartStringify)
 }
 export{addToLS, getStorageCart, removeFromLS}
